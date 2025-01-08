@@ -5,7 +5,7 @@ final class AccessibilityElement {
     static let systemWideElement = AccessibilityElement.createSystemWideElement()
 
     var position: CGPoint? {
-        get { return self.getPosition() }
+        get { self.getPosition() }
         set {
             if let position = newValue {
                 self.set(position: position)

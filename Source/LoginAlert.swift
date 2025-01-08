@@ -4,7 +4,9 @@ import Foundation
 private let SuppressionKey = "loginAlertSuppressionKey"
 
 struct LoginAlert {
+
     static func showAlertIfNeeded() {
+
         if UserDefaults.standard.bool(forKey: SuppressionKey) {
             return
         }
@@ -15,6 +17,7 @@ struct LoginAlert {
         alert.showsSuppressionButton = true
         alert.addButton(withTitle: "Open at Login")
         alert.addButton(withTitle: "Cancel")
+        
         let response = alert.runModal()
         if alert.suppressionButton?.state == .on {
             UserDefaults.standard.set(true, forKey: SuppressionKey)
